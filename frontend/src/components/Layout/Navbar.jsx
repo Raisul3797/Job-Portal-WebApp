@@ -27,7 +27,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className={isAuthorized ? "navbarShow" : "navbarHide"}>
+    <nav className={isAuthorized ? "navbarShow bg-blue-700" : "navbarHide"}>
       <div className="container py-4">
 
         <a href="/" className='flex items-center gap-2 text-2xl font-bold text-black'>
