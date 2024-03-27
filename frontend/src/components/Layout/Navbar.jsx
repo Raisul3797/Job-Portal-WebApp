@@ -7,6 +7,7 @@ import { GiHamburgerMenu } from "react-icons/gi";
 
 const Navbar = () => {
   const [show, setShow] = useState(false);
+  const [showResources, setShowResources] = useState(false);
   const { isAuthorized, setIsAuthorized, user } = useContext(Context);
   const navigateTo = useNavigate();
 
@@ -26,6 +27,14 @@ const Navbar = () => {
     }
   };
 
+  const toggleResourcesDropdown = () => {
+    setShowResources(!showResources);
+  };
+
+  const closeResourcesDropdown = () => {
+    setShowResources(false);
+  };
+
   return (
     <nav className={isAuthorized ? "navbarShow bg-blue-700" : "navbarHide"}>
       <div className="container py-4">
@@ -33,7 +42,8 @@ const Navbar = () => {
         <a href="/" className='flex items-center gap-2 text-2xl font-bold text-black'>
           <img width="48" height="48" src="https://img.icons8.com/color/48/portal.png" alt="portal" />
           <span className='bg-clip-text text-transparent bg-gradient-to-r from-blue-500 
-            via-cyan-500 to-sky-600'>JobHuntBD</span></a>
+            via-cyan-500 to-sky-600'>JobHuntBD</span>
+        </a>
 
         <ul className={!show ? "menu" : "show-menu menu"}>
           <li>
@@ -55,12 +65,7 @@ const Navbar = () => {
               </span>
             </Link>
           </li>
-          <li>
-            <Link to={"/About"} onClick={() => setShow(false)}>
-              <span className="font-bold">About</span>
-            </Link>
-          </li>
-          {user && user.role === "Employer" ? (
+          {user && user.role === "Employer" && (
             <>
               <li>
                 <Link to={"/job/post"} onClick={() => setShow(false)}>
@@ -72,20 +77,47 @@ const Navbar = () => {
                   <span className="font-bold">View Your Jobs</span>
                 </Link>
               </li>
-              <li>
-                <Link to={"/About"} onClick={() => setShow(false)}>
-                  <span className="font-bold">About</span>
-                </Link>
-              </li>
-            </>
-          ) : (
-            <>
-            
             </>
           )}
 
-          <button className="rounded" onClick={handleLogout}><span className="font-bold text-slate-400
-          ">Logout</span></button>
+          {/* Resources dropdown menu - show only for job seekers */}
+          {user && user.role === "Job Seeker" && (
+            <li 
+              onClick={toggleResourcesDropdown}
+              className="relative"
+            >
+              <span className="font-bold cursor-pointer text-white text-xl">Resources</span>
+              <ul className={`absolute bg-white border border-gray-200 py-2 w-32 left-0 ${showResources ? "block" : "hidden"}`}>
+                <li>
+                  <Link to={"/resources/cv_tips"} onClick={() => setShow(false)}>
+                    CV Tips
+                  </Link>
+                </li>
+                <li>
+                  <Link to={"/resources/interview_prep"} onClick={() => setShow(false)}>
+                    Interview Preparation
+                  </Link>
+                </li>
+                <li>
+                  <Link to={"/resources/skill_development"} onClick={() => setShow(false)}>
+                    Skill Development
+                  </Link>
+                </li>
+              </ul>
+            </li>
+          )}
+
+          {/* Place the About item here to ensure visibility for both roles */}
+          <li>
+            <Link to={"/About"} onClick={() => setShow(false)}>
+              <span className="font-bold">About</span>
+            </Link>
+          </li>
+          <li> {/* This is the solution */}
+            <button className="rounded" onClick={handleLogout}>
+              <span className="font-bold text-slate-400">Logout</span>
+            </button>
+          </li>
         </ul>
         <div className="hamburger">
           <GiHamburgerMenu onClick={() => setShow(!show)} />
