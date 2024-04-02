@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { GiHamburgerMenu } from "react-icons/gi";
+import { MdArrowDropDown } from "react-icons/md";
 
 const Navbar = () => {
   const [show, setShow] = useState(false);
@@ -35,6 +36,11 @@ const Navbar = () => {
     setShowResources(false);
   };
 
+  const handleNavItemClick = () => {
+    setShow(false);
+    closeResourcesDropdown(); // Close the dropdown menu
+  };
+
   return (
     <nav className={isAuthorized ? "navbarShow bg-blue-700" : "navbarHide"}>
       <div className="container py-4">
@@ -47,18 +53,18 @@ const Navbar = () => {
 
         <ul className={!show ? "menu" : "show-menu menu"}>
           <li>
-            <Link to={"/"} onClick={() => setShow(false)}>
-              <span className="font-bold">Home</span>
+            <Link to={"/"} onClick={handleNavItemClick}>
+              <span className="font-bold nav-item">Home</span>
             </Link>
           </li>
           <li>
-            <Link to={"/job/getall"} onClick={() => setShow(false)}>
-              <span className="font-bold">All Jobs</span>
+            <Link to={"/job/getall"} onClick={handleNavItemClick}>
+              <span className="font-bold nav-item">All Jobs</span>
             </Link>
           </li>
           <li>
-            <Link to={"/applications/me"} onClick={() => setShow(false)}>
-              <span className="font-bold ">
+            <Link to={"/applications/me"} onClick={handleNavItemClick}>
+              <span className="font-bold nav-item">
                 {user && user.role === "Employer"
                   ? "Applicant's Application"
                   : "My Applications"}
@@ -68,13 +74,13 @@ const Navbar = () => {
           {user && user.role === "Employer" && (
             <>
               <li>
-                <Link to={"/job/post"} onClick={() => setShow(false)}>
-                  <span className="font-bold">Post Job</span>
+                <Link to={"/job/post"} onClick={handleNavItemClick}>
+                  <span className="font-bold nav-item">Post Job</span>
                 </Link>
               </li>
               <li>
-                <Link to={"/job/me"} onClick={() => setShow(false)}>
-                  <span className="font-bold">View Your Jobs</span>
+                <Link to={"/job/me"} onClick={handleNavItemClick}>
+                  <span className="font-bold nav-item">View Your Jobs</span>
                 </Link>
               </li>
             </>
@@ -82,25 +88,25 @@ const Navbar = () => {
 
           {/* Resources dropdown menu - show only for job seekers */}
           {user && user.role === "Job Seeker" && (
-            <li 
+            <li
               onClick={toggleResourcesDropdown}
-              className="relative"
+              className=""
             >
-              <span className="font-bold cursor-pointer text-white text-xl">Resources</span>
-              <ul className={`absolute bg-white border border-gray-200 py-2 w-32 left-0 ${showResources ? "block" : "hidden"}`}>
-                <li>
-                  <Link to={"/resources/cv_tips"} onClick={() => setShow(false)}>
-                    CV Tips
+              <span className="font-bold cursor-pointer text-white text-xl nav-item flex">Resources<MdArrowDropDown /></span>
+              <ul className={`absolute bg-slate-600 border border-gray-200 py-2 px-2 w-56 ${showResources ? "block" : "hidden"}`}>
+                <li className="text-black">
+                  <Link to={"/resources/cv_tips"} onClick={handleNavItemClick}>
+                    <span className="font-bold">CV Tips</span>
                   </Link>
                 </li>
                 <li>
-                  <Link to={"/resources/interview_prep"} onClick={() => setShow(false)}>
-                    Interview Preparation
+                  <Link to={"/resources/interview_prep"} onClick={handleNavItemClick}>
+                    <span className="font-bold">Interview Preparation</span>
                   </Link>
                 </li>
                 <li>
-                  <Link to={"/resources/skill_development"} onClick={() => setShow(false)}>
-                    Skill Development
+                  <Link to={"/resources/skill_development"} onClick={handleNavItemClick}>
+                    <span className="font-bold">Skill Development</span>
                   </Link>
                 </li>
               </ul>
@@ -109,13 +115,13 @@ const Navbar = () => {
 
           {/* Place the About item here to ensure visibility for both roles */}
           <li>
-            <Link to={"/About"} onClick={() => setShow(false)}>
-              <span className="font-bold">About</span>
+            <Link to={"/About"} onClick={handleNavItemClick}>
+              <span className="font-bold nav-item">About</span>
             </Link>
           </li>
           <li> {/* This is the solution */}
             <button className="rounded" onClick={handleLogout}>
-              <span className="font-bold text-slate-400">Logout</span>
+              <span className="font-bold text-slate-400 nav-item">Logout</span>
             </button>
           </li>
         </ul>
@@ -125,6 +131,7 @@ const Navbar = () => {
       </div>
     </nav>
   );
+
 };
 
 export default Navbar;
