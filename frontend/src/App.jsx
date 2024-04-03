@@ -17,6 +17,10 @@ import MyApplications from "./components/Application/MyApplications";
 import PostJob from "./components/Job/PostJob";
 import NotFound from "./components/NotFound/NotFound";
 import MyJobs from "./components/Job/MyJobs";
+import FAQs from "./components/Layout/FAQs";
+import CVTips from "./components/Layout/CVTips";
+import IntQs from "./components/Layout/IntQs";
+import SkillDev from "./components/Layout/SkillDev";
 
 const App = () => {
   const { isAuthorized, setIsAuthorized, setUser } = useContext(Context);
@@ -53,6 +57,10 @@ const App = () => {
           <Route path="/job/post" element={<PostJob />} />
           <Route path="/job/me" element={<MyJobs />} />
           <Route path="/about" element={<About />} />
+          <Route path="/faq" element={<FAQs />} />
+          <Route path="/cv-tips" element={<CVTips />} />
+          <Route path="/interview-qs" element={<IntQs />} />
+          <Route path="/skill-dev" element={<SkillDev />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer />

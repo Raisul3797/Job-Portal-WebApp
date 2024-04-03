@@ -1083,7 +1083,7 @@ p {
   text-transform: uppercase;
   padding: 7px;
   border: none;
-  background: #ffc107;
+  background: #23d659;
 }
 .myJobs .container .banner .card .button_wrapper .delete_btn {
   background: #d9534f;
@@ -1091,8 +1091,8 @@ p {
 }
 .myJobs .container .banner .card .button_wrapper .check_btn {
   background: transparent;
-  color: #184235;
-  border: 1px solid #184235;
+  color: #0feba5;
+  border: 1px solid #2cd39e;
   border-radius: 7px;
   width: 50px;
   padding: 8px;
@@ -1103,7 +1103,7 @@ p {
 }
 .myJobs .container .banner .card .button_wrapper .check_btn:hover {
   transition: all 0.3s;
-  background: #184235;
+  background: #3cf07b;
   color: #f1f3f6;
 }
 .myJobs .container .banner .card .button_wrapper .cross_btn {
@@ -1348,6 +1348,14 @@ nav .hamburger {
   .resume-modal {
     z-index: 11;
   }
+}
+.faq-container {
+  width: 80%; /* Example width */
+  margin: 0 auto; /* Center horizontally */
+  padding: 20px; /* Example padding */
+}
+.faq-title {
+  font-weight: bold;
 }
 
 

@@ -46,9 +46,8 @@ const Navbar = () => {
       <div className="container py-4">
 
         <a href="/" className='flex items-center gap-2 text-2xl font-bold text-black'>
-          <img width="48" height="48" src="https://img.icons8.com/color/48/portal.png" alt="portal" />
-          <span className='bg-clip-text text-transparent bg-gradient-to-r from-blue-500 
-            via-cyan-500 to-sky-600'>JobHuntBD</span>
+          <img width="56" height="56" src="https://img.icons8.com/color/48/portal.png" alt="portal" />
+          <span className='text-white text-3xl'>JobHuntBD</span>
         </a>
 
         <ul className={!show ? "menu" : "show-menu menu"}>
@@ -88,30 +87,31 @@ const Navbar = () => {
 
           {/* Resources dropdown menu - show only for job seekers */}
           {user && user.role === "Job Seeker" && (
-            <li
-              onClick={toggleResourcesDropdown}
-              className=""
-            >
-              <span className="font-bold cursor-pointer text-white text-xl nav-item flex">Resources<MdArrowDropDown /></span>
-              <ul className={`absolute bg-slate-600 border border-gray-200 py-2 px-2 w-56 ${showResources ? "block" : "hidden"}`}>
-                <li className="text-black">
-                  <Link to={"/resources/cv_tips"} onClick={handleNavItemClick}>
-                    <span className="font-bold">CV Tips</span>
-                  </Link>
-                </li>
-                <li>
-                  <Link to={"/resources/interview_prep"} onClick={handleNavItemClick}>
-                    <span className="font-bold">Interview Preparation</span>
-                  </Link>
-                </li>
-                <li>
-                  <Link to={"/resources/skill_development"} onClick={handleNavItemClick}>
-                    <span className="font-bold">Skill Development</span>
-                  </Link>
-                </li>
-              </ul>
-            </li>
-          )}
+  <li
+    onClick={toggleResourcesDropdown}
+    className=""
+  >
+    <span className="font-bold cursor-pointer text-white text-xl nav-item flex"> Career Resources<MdArrowDropDown /></span>
+    <ul className={`absolute bg-slate-600 border border-gray-200 py-2 px-2 w-56 ${showResources ? "block" : "hidden"}`}>
+      <li className="text-black">
+        <Link to={"/cv-tips"} onClick={handleNavItemClick}>
+          <span className="font-bold">CV Tips</span>
+        </Link>
+      </li>
+      <li>
+        <Link to={"/interview-qs"} onClick={handleNavItemClick}>
+          <span className="font-bold">Interview Preparation</span>
+        </Link>
+      </li>
+      <li>
+        <Link to={"/skill-dev"} onClick={handleNavItemClick}>
+          <span className="font-bold">Skill Development</span>
+        </Link>
+      </li>
+    </ul>
+  </li>
+)}
+
 
           {/* Place the About item here to ensure visibility for both roles */}
           <li>

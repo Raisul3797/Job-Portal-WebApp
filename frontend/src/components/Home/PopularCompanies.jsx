@@ -25,6 +25,20 @@ const PopularCompanies = () => {
       openPositions: 20,
       icon: <FaApple />,
     },
+    {
+      id: 4,
+      title: "Apple",
+      location: "Street 10 Uttara, Dhaka",
+      openPositions: 20,
+      icon: <FaApple />,
+    },
+    {
+      id: 5,
+      title: "Apple",
+      location: "Street 10 Uttara, Dhaka",
+      openPositions: 20,
+      icon: <FaApple />,
+    },
   ];
   return (
     <div className="companies">

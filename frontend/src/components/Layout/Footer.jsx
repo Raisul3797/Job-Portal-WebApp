@@ -87,17 +87,17 @@ const Footer = () => {
             <div>
               <h2 className='font-bold text-xl text-stone-300 mb-3'>Usefull Links</h2>
               <p>
-                <a href='#' className='text-reset'>
+                <a href='/' className='text-reset'>
                   Home
                 </a>
               </p>
               <p>
-                <a href='#' className='text-reset'>
+                <a href='/about' className='text-reset'>
                   About Us
                 </a>
               </p>
               <p>
-                <a href='#' className='text-reset'>
+                <a href='/faq' className='text-reset'>
                   FAQs
                 </a>
               </p>
