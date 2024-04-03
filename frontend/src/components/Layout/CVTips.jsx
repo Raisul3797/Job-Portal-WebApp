@@ -31,8 +31,19 @@ const CVTips = () => {
           colleague to review it as well.
         </li>
       </ul>
-      <p className='text-2xl font-bold text-blue-600 my-3 underline'>Example CV</p>
-      <img src="/public/CVs/cv1.jpg" className='w-1/2 mx-auto' />
+      <p className='text-2xl font-bold text-blue-600 my-3 underline'>Example Resume's</p>
+      <div>
+        <p className='text-2xl text-center font-bold mt-12 mb-4'>Resume-1</p>
+        <img src="/public/CVs/cv1.jpg" className='w-1/2 mx-auto' />
+      </div>
+      <div>
+        <p className='text-2xl text-center font-bold mt-12 mb-4'>Resume-2</p>
+        <img src="/public/CVs/cv3.jpg" className='w-1/2 mx-auto' />
+      </div>
+      <div>
+        <p className='text-2xl text-center font-bold mt-12 mb-4'>Resume-3</p>
+        <img src="/public/CVs/cv5.jpg" className='w-1/2 mx-auto' />
+      </div>
     </div>
   );
 };
