@@ -3,6 +3,8 @@ import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { Context } from "../../main";
+import { IoMdArrowRoundBack } from "react-icons/io";
+
 const JobDetails = () => {
   const { id } = useParams();
   const [job, setJob] = useState({});
@@ -27,10 +29,19 @@ const JobDetails = () => {
     navigateTo("/login");
   }
 
+  const handleNavItemClick = () => {
+    setShow(false);
+    closeResourcesDropdown(); // Close the dropdown menu
+  };
+
   return (
     <section className="jobDetail page">
-      <div className="container">
+      <div className="container relative">
         <h3 className="font-semibold text-4xl">Job Details</h3>
+        <Link to={"/job/getall"} onClick={handleNavItemClick} className="flex items-center text-2xl back-link absolute left-0 top-24">
+          <IoMdArrowRoundBack />
+          <span className="font-bold ml-1">Back</span>
+        </Link>
         <div className="banner">
           <p>
             Title: <span> {job.title}</span>
@@ -66,7 +77,9 @@ const JobDetails = () => {
           {user && user.role === "Employer" ? (
             <></>
           ) : (
-            <Link className="rounded" to={`/application/${job._id}`}><span className="font-bold">Apply Now</span></Link>
+            <Link className="rounded" to={`/application/${job._id}`}>
+              <span className="font-bold">Apply Now</span>
+            </Link>
           )}
         </div>
       </div>

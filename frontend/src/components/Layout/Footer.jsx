@@ -8,7 +8,9 @@ import CustomButton from '../CustomButton'
 import { Context } from '../../main';
 import { IoIosHome } from "react-icons/io";
 import { AiTwotoneMail } from "react-icons/ai";
-import { FaPhone } from "react-icons/fa6";
+import { FaPhone, FaWhatsapp } from "react-icons/fa6";
+import { FaTelegramPlane } from "react-icons/fa";
+
 
 const Footer = () => {
 // const { isAuthorized } = useContext(Context);
@@ -115,6 +117,14 @@ const Footer = () => {
               <p className='flex items-center gap-2'>
               <FaPhone />
                  + 01 234 567 88
+              </p>
+              <p className='flex items-center gap-2'>
+              <FaTelegramPlane />
+                 + 088 01775 308562
+              </p>
+              <p className='flex items-center gap-2'>
+              <FaWhatsapp />
+                 + 008 01775 308562
               </p>
             </div>
 

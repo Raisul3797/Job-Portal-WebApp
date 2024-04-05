@@ -3,6 +3,7 @@ import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { Context } from "../../main";
 import { FiSearch } from "react-icons/fi"
+import Button from '@material-ui/core/Button';
 
 const Jobs = () => {
   const [query, setQuery] = useState("");
@@ -25,11 +26,12 @@ const Jobs = () => {
   }, [searchText]);
 
   // filter jobs by title
-  // const filteredItems = jobs.filter((job) => job.title.toLowerCase().indexOf(query.toLowerCase()) !== -1);
+  const filteredItems = jobs.length > 0 ? jobs.filter((job) => job.title.toLowerCase().indexOf(query.toLowerCase()) !== -1) : [];
 
-  // console.log(filteredItems);
 
-  
+  console.log(filteredItems);
+
+
   return (
     <section className="jobs page">
       <div className="container">
@@ -40,7 +42,7 @@ const Jobs = () => {
             <div className='flex md:rounded-s-md rounded shadow-sm ring-1 ring-inset ring-gray-300 
                     focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 '>
               <input type="text" name="title" id="title" placeholder='Search here...' className='block border-0 bg-transparent 
-                        py-2 pl-8 text-gray-900 placeholder:text-gray-400 focus:right-0 sm:text-sm sm:leading-6'
+                        py-2 pl-8 pr-56 text-gray-900 placeholder:text-gray-400 focus:right-0 sm:text-sm sm:leading-6'
                 onChange={handleInputChange}
                 value={query}
               />
@@ -58,8 +60,7 @@ const Jobs = () => {
                   <p>{element.title}</p>
                   <p>{element.category}</p>
                   <p>{element.country}</p>
-                  <Link to={`/job/${element._id}`}><span className="hover:bg-cyan-500
-                  hover:text-white p-3">Job Details</span></Link>
+                  <Link to={`/job/${element._id}`}><Button className="">Job Details</Button></Link>
                 </div>
               );
             })}

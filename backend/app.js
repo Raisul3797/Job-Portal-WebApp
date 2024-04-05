@@ -10,7 +10,7 @@ import { dbConnection } from "./database/dbConnection.js";
 import { errorMiddleware } from "./middlewares/error.js";
 
 
-const app = express(); // Create an instance of Express application
+const  app = express(); // Create an instance of Express application
 dotenv.config({ path: "./config/config.env" });
 
 app.use(

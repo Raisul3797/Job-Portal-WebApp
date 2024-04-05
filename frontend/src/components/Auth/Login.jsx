@@ -57,6 +57,7 @@ const Login = () => {
                   <option value="">Select Role</option>
                   <option value="Employer">Employer</option>
                   <option value="Job Seeker">Job Seeker</option>
+                  <option value="Job Seeker">Admin</option>
                 </select>
                 <FaRegUser />
               </div>
@@ -66,7 +67,7 @@ const Login = () => {
               <div>
                 <input
                   type="email"
-                  placeholder="zk@gmail.com"
+                  placeholder="jobportal@gmail.com"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                 />
