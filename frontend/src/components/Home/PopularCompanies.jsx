@@ -1,6 +1,8 @@
 import React from "react";
 import { FaMicrosoft, FaApple } from "react-icons/fa";
-import { SiTesla } from "react-icons/si";
+import { IoLogoAndroid } from "react-icons/io";
+import { SiLamborghini, SiTesla } from "react-icons/si";
+import { Link } from "react-router-dom";
 
 const PopularCompanies = () => {
   const companies = [
@@ -10,6 +12,7 @@ const PopularCompanies = () => {
       location: "Gulshan, Dhaka",
       openPositions: 10,
       icon: <FaMicrosoft />,
+      path: "/microsoft-jobs",
     },
     {
       id: 2,
@@ -17,6 +20,7 @@ const PopularCompanies = () => {
       location: "Tongi, Gazipur",
       openPositions: 5,
       icon: <SiTesla />,
+      path: "/tesla-jobs",
     },
     {
       id: 3,
@@ -24,20 +28,23 @@ const PopularCompanies = () => {
       location: "Street 10 Uttara, Dhaka",
       openPositions: 20,
       icon: <FaApple />,
+      path: "/apple-jobs",
     },
     {
       id: 4,
-      title: "Apple",
+      title: "Lamborghini",
       location: "Street 10 Uttara, Dhaka",
-      openPositions: 20,
-      icon: <FaApple />,
+      openPositions: 12,
+      icon: <SiLamborghini />,
+      path: "/lamborghini-jobs",
     },
     {
       id: 5,
-      title: "Apple",
+      title: "Android",
       location: "Street 10 Uttara, Dhaka",
       openPositions: 20,
-      icon: <FaApple />,
+      icon: <IoLogoAndroid />,
+      path: "/android-jobs",
     },
   ];
   return (
@@ -55,7 +62,7 @@ const PopularCompanies = () => {
                     <p>{element.location}</p>
                   </div>
                 </div>
-                <button>Open Positions {element.openPositions}</button>
+                <button><Link to={element.path}>Open Positions {element.openPositions}</Link></button>
               </div>
             );
           })}

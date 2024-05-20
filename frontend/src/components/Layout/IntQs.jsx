@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import YouTube from 'react-youtube';
 
 const IntQs = () => {
   const questionsAndAnswers = [
@@ -32,6 +33,45 @@ const IntQs = () => {
       answer:
         "Prepare thoughtful questions to ask the interviewer about the company, team, or role to demonstrate your interest and engagement.",
     },
+    {
+      question: "What motivates you?",
+      answer:
+        "Discuss what drives you to excel and succeed, whether it's personal goals, a desire for recognition, or a passion for the work you do.",
+    },
+    {
+      question: "How do you handle conflicts or disagreements in the workplace?",
+      answer:
+        "Describe your approach to resolving conflicts diplomatically and professionally, emphasizing communication, collaboration, and finding common ground.",
+    },
+    {
+      question: "Tell me about a time you demonstrated leadership skills.",
+      answer:
+        "Share a specific example from your past experience where you took on a leadership role, delegated tasks, motivated team members, and achieved a positive outcome.",
+    },
+  ];
+
+  const youtubeVideos = [
+    
+    {
+      title: "Job Interview Tips for Freshers in English",
+      videoId: "4kWyFSQhJpc",
+    },
+    {
+      title: "Top 10 Job Interview Questions and Answers",
+      videoId: "0k0Uc9uAJwk",
+    },
+    {
+      title: "10 Interview Questions for Freshers with Answers",
+      videoId: "kHrYzQHwv7c",
+    },
+    {
+      title: "5 Common Interview Questions and Answers",
+      videoId: "ZOLCMa2QbdE",
+    },
+    {
+      title: "Most Common Interview Questions and Answers for Freshers",
+      videoId: "jD6plHT__0E",
+    },
   ];
 
   return (
@@ -45,8 +85,19 @@ const IntQs = () => {
           </li>
         ))}
       </ul>
+      <div className="text-center my-8">
+        <h3 className="text-2xl font-bold mb-8 text-blue-600">Top Interview Videos</h3>
+        <div className="grid grid-cols-2 justify-content-center">
+          {youtubeVideos.map((video, index) => (
+            <div key={index} className="col-lg-6">
+              <YouTube videoId={video.videoId} />
+              <p className="font-bold mb-16 text-start">{video.title}</p>
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   );
-}
+};
 
-export default IntQs
+export default IntQs;

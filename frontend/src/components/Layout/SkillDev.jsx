@@ -84,7 +84,7 @@ const SkillDev = () => {
       </div>
       <div className="text-center my-8">
         <h3 className="text-2xl font-bold mb-8 text-blue-600">Essential YouTube Videos</h3>
-        <div className="row justify-content-center">
+        <div className="grid grid-cols-2 justify-content-center">
           {youtubeVideos.map((video, index) => (
             <div key={index} className="col-lg-6">
               <YouTube videoId={video.videoId} />

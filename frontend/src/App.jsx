@@ -21,6 +21,12 @@ import FAQs from "./components/Layout/FAQs";
 import CVTips from "./components/Layout/CVTips";
 import IntQs from "./components/Layout/IntQs";
 import SkillDev from "./components/Layout/SkillDev";
+import Profile from "./components/Layout/Profile";
+import PremiumJobs from "./components/Home/PremiumJobs";
+import Settings from "./components/Layout/Settings";
+import MicrosoftComp from "./components/Layout/MicrosoftComp";
+import TeslaComp from "./components/Layout/TeslaComp";
+import AppleComp from "./components/Layout/AppleComp";
 
 const App = () => {
   const { isAuthorized, setIsAuthorized, setUser } = useContext(Context);
@@ -61,6 +67,12 @@ const App = () => {
           <Route path="/cv-tips" element={<CVTips />} />
           <Route path="/interview-qs" element={<IntQs />} />
           <Route path="/skill-dev" element={<SkillDev />} />
+          <Route path="/my-profile" element={<Profile />} />
+          <Route path="/settings" element={<Settings />} />
+          <Route path="/premium-jobs" element={<PremiumJobs />} />
+          <Route path="/microsoft-jobs" element={<MicrosoftComp />} />
+          <Route path="/tesla-jobs" element={<TeslaComp />} />
+          <Route path="/apple-jobs" element={<AppleComp />} /> 
           <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer />

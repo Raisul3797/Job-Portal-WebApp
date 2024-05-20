@@ -5,10 +5,12 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { MdArrowDropDown } from "react-icons/md";
+import { FaArrowRightToBracket, FaRegCircleUser } from "react-icons/fa6";
 
 const Navbar = () => {
   const [show, setShow] = useState(false);
   const [showResources, setShowResources] = useState(false);
+  const [showUserMenu, setShowUserMenu] = useState(false);
   const { isAuthorized, setIsAuthorized, user } = useContext(Context);
   const navigateTo = useNavigate();
 
@@ -87,30 +89,30 @@ const Navbar = () => {
 
           {/* Resources dropdown menu - show only for job seekers */}
           {user && user.role === "Job Seeker" && (
-  <li
-    onClick={toggleResourcesDropdown}
-    className=""
-  >
-    <span className="font-bold cursor-pointer text-white text-xl nav-item flex"> Career Resources<MdArrowDropDown /></span>
-    <ul className={`absolute bg-slate-600 border border-gray-200 py-2 px-2 w-56 ${showResources ? "block" : "hidden"}`}>
-      <li className="text-black">
-        <Link to={"/cv-tips"} onClick={handleNavItemClick}>
-          <span className="font-bold">CV Tips</span>
-        </Link>
-      </li>
-      <li>
-        <Link to={"/interview-qs"} onClick={handleNavItemClick}>
-          <span className="font-bold">Interview Preparation</span>
-        </Link>
-      </li>
-      <li>
-        <Link to={"/skill-dev"} onClick={handleNavItemClick}>
-          <span className="font-bold">Skill Development</span>
-        </Link>
-      </li>
-    </ul>
-  </li>
-)}
+            <li
+              onClick={toggleResourcesDropdown}
+              className=""
+            >
+              <span className="font-bold cursor-pointer text-white text-xl nav-item flex"> Career Resources<MdArrowDropDown /></span>
+              <ul className={`absolute bg-slate-600 border border-gray-200 py-2 px-2 w-56 ${showResources ? "block" : "hidden"}`}>
+                <li className="text-black">
+                  <Link to={"/cv-tips"} onClick={handleNavItemClick}>
+                    <span className="font-bold">CV Tips</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link to={"/interview-qs"} onClick={handleNavItemClick}>
+                    <span className="font-bold">Interview Preparation</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link to={"/skill-dev"} onClick={handleNavItemClick}>
+                    <span className="font-bold">Skill Development</span>
+                  </Link>
+                </li>
+              </ul>
+            </li>
+          )}
 
 
           {/* Place the About item here to ensure visibility for both roles */}
@@ -119,11 +121,42 @@ const Navbar = () => {
               <span className="font-bold nav-item">About</span>
             </Link>
           </li>
-          <li> {/* This is the solution */}
+
+          <li onClick={() => setShowUserMenu(!showUserMenu)}>
+            <span className="font-bold cursor-pointer text-white text-xl nav-item flex">
+              {user && user.role === "Job Seeker" ? (
+                <img className="h-14 w-14 rounded-full" src="./src/assets/Raisul.jpg" alt="Job Seeker" />
+              ) : user && user.role === "Employer" ? (
+                <img className="h-14 w-14 rounded-full" src="./src/assets/hero.png" alt="Employer" />
+              ) : (
+                <FaRegCircleUser className="h-14 w-14 rounded-full" />
+              )}
+            </span>
+            <ul className={`absolute bg-slate-600 border border-gray-200 py-2 px-2 w-56 mt-3 ${showUserMenu ? "block" : "hidden"}`}>
+              <li className="text-black">
+                <Link to={"/my-profile"} onClick={handleNavItemClick}>
+                  <span className="font-bold">Profile</span>
+                </Link>
+              </li>
+              <li>
+                <Link to={"/settings"} onClick={handleNavItemClick}>
+                  <span className="font-bold">Settings</span>
+                </Link>
+              </li>
+              <li>
+                <button onClick={handleLogout}>
+                  <span className="font-bold cursor-pointer text-white text-xl nav-item flex items-center gap-3">Logout<FaArrowRightToBracket /></span>
+                </button>
+              </li>
+            </ul>
+          </li>
+
+          {/* Logout button */}
+          {/* <li>
             <button className="rounded" onClick={handleLogout}>
               <span className="font-bold text-slate-400 nav-item">Logout</span>
             </button>
-          </li>
+          </li> */}
         </ul>
         <div className="hamburger">
           <GiHamburgerMenu onClick={() => setShow(!show)} />

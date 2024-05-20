@@ -1,0 +1,130 @@
+[{
+  "_id": {
+    "$oid": "65facb7f50648961d5d358d2"
+  },
+  "name": "Raisul Islam",
+  "email": "raisul@gmail.com",
+  "phone": 1775308562,
+  "password": "$2b$10$uhaC/CQsFgfSq13iynmfL.3palvIJ4CzHw8NV8JDtnqIm.E1paRP6",
+  "role": "Employer",
+  "createdAt": {
+    "$date": "2024-03-20T11:41:51.803Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65facbc250648961d5d358d5"
+  },
+  "name": "Sakib Hasan",
+  "email": "admin@gmail.com",
+  "phone": 1775308562,
+  "password": "admin1",
+  "role": "Admin",
+  "createdAt": {
+    "$date": "2024-03-20T11:42:58.755Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65faccff50648961d5d358d8"
+  },
+  "name": "Mahmud Hasan",
+  "email": "mahmud@gmail.com",
+  "phone": 1787653489,
+  "password": "$2b$10$CvT.20EPe0V83C3bN0jp8OSjrv1cpgfYZdvwcsKPzhuTb/eJhSCI2",
+  "role": "Employer",
+  "createdAt": {
+    "$date": "2024-03-20T11:48:15.923Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65fbd57fb8958be24249ac89"
+  },
+  "name": "Abdur Rahim",
+  "email": "rahim@gmail.com",
+  "phone": {
+    "$numberLong": "17654896547"
+  },
+  "password": "$2b$10$pEZiZ3tPiHPfzN3rWom40OlJRQPfeYke0bWRL2T854.KgvO8E93x.",
+  "role": "Employer",
+  "createdAt": {
+    "$date": "2024-03-21T06:36:47.768Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65fbec14b8958be24249ac94"
+  },
+  "name": "JobHuntBD",
+  "email": "jobhuntbd@gmail.com",
+  "phone": 1775308562,
+  "password": "$2b$10$DUWP2BA5LVosLCANyyihxO8y5QCjAxlof8wiEhGcUBkxZJTGs5i2m",
+  "role": "Employer",
+  "createdAt": {
+    "$date": "2024-03-21T08:13:08.357Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65fbffccb8958be24249ad6c"
+  },
+  "name": "Raisul Islam",
+  "email": "raisul1@gmail.com",
+  "phone": 1386896986,
+  "password": "$2b$10$ebQlMITXD1Gs/5Ax/CRE/OrarxCqqnkZYWvDvfD3b/PYBapGnKVRC",
+  "role": "Job Seeker",
+  "createdAt": {
+    "$date": "2024-03-21T09:37:16.207Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "660e3a5e257e888a6dfb30df"
+  },
+  "name": "Al Amin",
+  "email": "alamin@gmail.com",
+  "phone": {
+    "$numberLong": "178738236289"
+  },
+  "password": "$2b$10$IBOSkzS//YCRpMdYRf/56.gqxjs59KsDn0TcFMfHUn50ShcGTx.Li",
+  "role": "Employer",
+  "createdAt": {
+    "$date": "2024-04-04T05:27:58.127Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6644d6fd797acf6e5b69f891"
+  },
+  "name": "Sarwar Karim",
+  "email": "karim@gmail.com",
+  "phone": 1384627345,
+  "password": "$2b$10$ZPijGEll/tZ/ro8Ex2UuEOTj4OccJ5cu9ubOP5eHfz95GoZo8Ule.",
+  "role": "Employer",
+  "createdAt": {
+    "$date": "2024-05-15T15:38:37.403Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6644d790797acf6e5b69f899"
+  },
+  "name": "Rokeya Khatun",
+  "email": "rokeya@gmail.com",
+  "phone": 1782471847,
+  "password": "$2b$10$B79mkm8.Uxu9en4VZxSD1.rfc6yRBCfO/rEgUl3nrrFuxqDpL1zr6",
+  "role": "Job Seeker",
+  "createdAt": {
+    "$date": "2024-05-15T15:41:04.714Z"
+  },
+  "__v": 0
+}]

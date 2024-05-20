@@ -1,7 +1,21 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { FaBuilding, FaSuitcase, FaUsers, FaUserPlus } from "react-icons/fa";
 
 const HeroSection = () => {
+  const [employers, setEmployers] = useState([]);
+  const [showEmployers, setShowEmployers] = useState(false);
+
+  useEffect(() => {
+    fetch('./src/MERN_JOB_SEEKING_WEBAPP.users.json')
+      .then(response => response.json())
+      .then(data => {
+        setEmployers(data);
+      })
+      .catch(error => {
+        console.error('Error fetching employer data:', error);
+      });
+  }, []);
+
   const details = [
     {
       id: 1,
@@ -23,15 +37,16 @@ const HeroSection = () => {
     },
     {
       id: 4,
-      title: "1,03,761",
+      title: employers.length.toString(),
       subTitle: "Employers",
       icon: <FaUserPlus />,
     },
   ];
+
   return (
     <>
       <div className="heroSection">
-        <div className="container">
+      <div className="container">
           <div className="title">
             <h1 className="bg-clip-text text-5xl font-bold">
               The <br />
@@ -50,7 +65,11 @@ const HeroSection = () => {
         <div className="details">
           {details.map((element) => {
             return (
-              <div className="card" key={element.id}>
+              <div className="card" key={element.id} onClick={() => {
+                if (element.subTitle === "Employers" || "Job Seekers") {
+                  setShowEmployers(!showEmployers);
+                }
+              }}>
                 <div className="icon">{element.icon}</div>
                 <div className="content">
                   <p>{element.title}</p>
@@ -60,6 +79,22 @@ const HeroSection = () => {
             );
           })}
         </div>
+        {showEmployers && (
+          <div className="employers-list pl-10 shadow-lg rounded-lg">
+            <h2 className="mb-5 p-6 font-bold text-2xl text-center">List of Employers</h2>
+            <ul className="p-8 space-y-2 grid grid-cols-5 mx-auto w-3/4 shadow-inner">
+              {employers.map(employer => (
+                <li className="" key={employer._id.$oid}>
+                  <div><span className="font-bold pb-6">Name:</span> {employer.name}</div>
+                  <div><span className="font-bold pb-6">Email:</span> {employer.email}</div>
+                  <div><span className="font-bold pb-6">Phone:</span> {employer.phone.$numberLong || employer.phone}</div>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+
+        )}
       </div>
     </>
   );
