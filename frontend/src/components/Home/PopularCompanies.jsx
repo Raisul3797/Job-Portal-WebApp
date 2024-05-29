@@ -33,7 +33,7 @@ const PopularCompanies = () => {
     {
       id: 4,
       title: "Lamborghini",
-      location: "Street 10 Uttara, Dhaka",
+      location: "Savar, Dhaka",
       openPositions: 12,
       icon: <SiLamborghini />,
       path: "/lamborghini-jobs",
@@ -41,10 +41,10 @@ const PopularCompanies = () => {
     {
       id: 5,
       title: "Android",
-      location: "Street 10 Uttara, Dhaka",
+      location: "Dhanmondi, Dhaka",
       openPositions: 20,
       icon: <IoLogoAndroid />,
-      path: "/android-jobs",
+      path: "/apple-jobs",
     },
   ];
   return (

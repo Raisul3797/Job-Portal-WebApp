@@ -1,0 +1,122 @@
+[{
+  "_id": {
+    "$oid": "65fbf529b8958be24249acf4"
+  },
+  "title": "Sr. Web Developer",
+  "description": "\nWe're currently in search of a talented JobHuntBD to join our team. This role involves [brief description of primary responsibilities], offering an exciting opportunity for [mention any notable aspects of the job]. Responsibilities include [Responsibility 1], [Responsibility 2], and [Responsibility 3]. ",
+  "category": "MERN Stack Development",
+  "country": "Bangladesh",
+  "city": "Dhaka",
+  "location": "Gazipur",
+  "salaryFrom": 50000,
+  "salaryTo": 70000,
+  "expired": false,
+  "postedBy": {
+    "$oid": "65fbec14b8958be24249ac94"
+  },
+  "jobPostedOn": {
+    "$date": "2024-03-21T08:51:53.420Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65fbfa3cb8958be24249ad37"
+  },
+  "title": "Jr. Graphic Designer",
+  "description": "We're currently in search of a talented Graphic Designer to join our team. This role involves [brief description of primary responsibilities], offering an exciting opportunity for [mention any notable aspects of the job].",
+  "category": "Graphics & Design",
+  "country": "Bangladesh",
+  "city": "Gazipur",
+  "location": "Tongi",
+  "fixedSalary": 50000,
+  "expired": false,
+  "postedBy": {
+    "$oid": "65fbec14b8958be24249ac94"
+  },
+  "jobPostedOn": {
+    "$date": "2024-03-21T09:13:32.963Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65fbfc8cb8958be24249ad53"
+  },
+  "title": "Video Editor",
+  "description": "We're currently in search of a talented Video Editor to join our team. This role involves [brief description of primary responsibilities], offering an exciting opportunity for [mention any notable aspects of the job].",
+  "category": "Video Animation",
+  "country": "Bangladesh",
+  "city": "Rajshahi",
+  "location": "Zero Point",
+  "salaryFrom": 40000,
+  "salaryTo": 50000,
+  "expired": false,
+  "postedBy": {
+    "$oid": "65fbec14b8958be24249ac94"
+  },
+  "jobPostedOn": {
+    "$date": "2024-03-21T09:23:24.266Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65fbfd0eb8958be24249ad60"
+  },
+  "title": "Data Entry",
+  "description": "We're currently in search of a talented Data Entry to join our team. This role involves [brief description of primary responsibilities], offering an exciting opportunity for [mention any notable aspects of the job].",
+  "category": "Data Entry Operator",
+  "country": "Bangladesh",
+  "city": "Chittagong",
+  "location": "Chittagong",
+  "fixedSalary": 20000,
+  "expired": false,
+  "postedBy": {
+    "$oid": "65fbec14b8958be24249ac94"
+  },
+  "jobPostedOn": {
+    "$date": "2024-03-21T09:25:34.852Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6644c92d797acf6e5b69f803"
+  },
+  "title": "Frontend Developer",
+  "description": "Backend Developer:\n\nWe're seeking a talented Backend Developer to join our team and help build robust and scalable backend solutions. You'll be responsible for designing, implementing, and maintaining the server-side logic, databases, and APIs to support our web and mobile applications. The ideal candidate should have a strong understanding of server-side programming languages (e.g., Node.js, Python, Java).",
+  "category": "MERN Stack Development",
+  "country": "Bangladesh",
+  "city": "Dhaka",
+  "location": "Gazipur",
+  "fixedSalary": 30022,
+  "expired": false,
+  "postedBy": {
+    "$oid": "65fbec14b8958be24249ac94"
+  },
+  "jobPostedOn": {
+    "$date": "2024-05-15T14:39:41.167Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6644c964797acf6e5b69f809"
+  },
+  "title": "Backend Developer",
+  "description": "Backend Developer:\n\nWe're seeking a talented Backend Developer to join our team and help build robust and scalable backend solutions. You'll be responsible for designing, implementing, and maintaining the server-side logic, databases, and APIs to support our web and mobile applications. The ideal candidate should have a strong understanding of server-side programming languages (e.g., Node.js, Python, Java).",
+  "category": "MERN Stack Development",
+  "country": "Bangladesh",
+  "city": "Dhaka",
+  "location": "Gazipur",
+  "fixedSalary": 30022,
+  "expired": false,
+  "postedBy": {
+    "$oid": "65fbec14b8958be24249ac94"
+  },
+  "jobPostedOn": {
+    "$date": "2024-05-15T14:40:36.549Z"
+  },
+  "__v": 0
+}]
