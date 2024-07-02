@@ -15,6 +15,11 @@ const Jobs = () => {
     setQuery(event.target.value);
   };
 
+  const handleSearch = (event) => {
+    event.preventDefault();
+    // The filtering will already happen as query state is updated
+  };
+
   useEffect(() => {
     fetch(`http://localhost:4000/api/v1/job/getall`)
       .then((res) => res.json())
@@ -23,16 +28,14 @@ const Jobs = () => {
       });
   }, []);
 
-  const filteredItems = jobs.filter((job) => job.title.toLowerCase().indexOf(query.toLowerCase()) !== -1  );
-
-  console.log(filteredItems)
+  const filteredItems = jobs.filter((job) => job.title.toLowerCase().indexOf(query.toLowerCase()) !== -1);
 
   return (
     <section className="jobs page">
       <div className="container">
         <h1 className="font-semibold text-4xl">All Available Jobs</h1>
         {/* searching */}
-        <form>
+        <form onSubmit={handleSearch}>
           <div className='flex'>
             <div className='flex md:rounded-s-md rounded shadow-sm ring-1 ring-inset ring-gray-300 
                     focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 '>
@@ -43,7 +46,7 @@ const Jobs = () => {
               />
               <FiSearch className='absolute mt-2.5 ml-2 text-gray-400' />
             </div>
-            <button type='submit' className='bg-blue-500 py-2 px-8 text-white md:rounded-s-none rounded'>Search</button>
+            <button type='submit' className='bg-blue-600 hover:bg-blue-500 font-bold py-2 px-8 text-white md:rounded-s-none rounded'>Search</button>
           </div>
         </form>
 

@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "bkash-payment": "^3.0.4"
+  }
+}

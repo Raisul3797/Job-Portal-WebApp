@@ -28,6 +28,9 @@ import MicrosoftComp from "./components/Layout/MicrosoftComp";
 import TeslaComp from "./components/Layout/TeslaComp";
 import AppleComp from "./components/Layout/AppleComp";
 import CompanyDetailPage from "./components/Layout/CompanyDetailPage";
+import Payment from "./components/Layout/Payment";
+import Pricing from "./components/Pricing";
+
 
 const App = () => {
   const { isAuthorized, setIsAuthorized, setUser } = useContext(Context);
@@ -74,7 +77,9 @@ const App = () => {
           <Route path="/microsoft-jobs" element={<MicrosoftComp />} />
           <Route path="/tesla-jobs" element={<TeslaComp />} />
           <Route path="/apple-jobs" element={<AppleComp />} /> 
+          <Route path="/payment" element={<Payment />} /> 
           <Route path="/company/:id" element={<CompanyDetailPage />} /> 
+          <Route path="/pricing" element={<Pricing />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer />

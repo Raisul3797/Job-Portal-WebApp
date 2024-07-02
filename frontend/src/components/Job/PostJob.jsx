@@ -72,7 +72,7 @@ const PostJob = () => {
         }
       )
       .then((res) => {
-        // toast.success(res.data.message);
+        toast.success(res.data.message);
       })
       .catch((err) => {
         toast.error(err.response.data.message);
@@ -189,7 +189,8 @@ const PostJob = () => {
               onChange={(e) => setDescription(e.target.value)}
               placeholder="Job Description"
             />
-            <button onClick={handleApplyButton} type="submit">Create Job</button>
+            <button type="submit">Create Job</button> 
+            {/* onClick={handleApplyButton} */}
           </form>
         </div>
       </div>

@@ -701,6 +701,10 @@ p {
   margin-top: 10px;
   width: fit-content;
 }
+
+.jobDetail .banner a:hover{
+  background-color: #30a658;
+}
 @media (max-width: 1520px) {
   .jobDetail .container {
     min-width: 100%;
@@ -951,6 +955,9 @@ p {
   text-transform: uppercase;
   font-weight: 600;
   letter-spacing: 2px;
+}
+.job_post form button:hover{
+  background: #30a658;
 }
 @media (max-width: 1520px) {
   .job_post .container {

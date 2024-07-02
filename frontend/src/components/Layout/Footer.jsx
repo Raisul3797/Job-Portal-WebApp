@@ -66,7 +66,7 @@ const Footer = () => {
             <div>
               <h2 className='font-bold text-xl text-stone-300 mb-3'>Services</h2>
               <p>
-                <a href='#premium-jobs' className='text-reset'>
+                <a href='/pricing' className='text-reset'>
                   Pricing
                 </a>
               </p>

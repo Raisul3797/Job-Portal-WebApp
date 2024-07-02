@@ -7,6 +7,7 @@ import HowItWorks from "./HowItWorks";
 import PopularCategories from "./PopularCategories";
 import PopularCompanies from "./PopularCompanies";
 import Premium from "./Premium";
+import Pricing from "../Pricing";
 
 const Home = () => {
   const { isAuthorized } = useContext(Context);
@@ -20,7 +21,7 @@ const Home = () => {
         <HowItWorks />
         <PopularCategories />
         <PopularCompanies />
-        <Premium/>
+        <Pricing/>
       </section>
     </>
   );

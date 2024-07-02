@@ -8,7 +8,7 @@ const PopularCompanies = () => {
   const companies = [
     {
       id: 1,
-      title: "Microsoft",
+      title: "BRAC",
       location: "Gulshan, Dhaka",
       openPositions: 10,
       icon: <FaMicrosoft />,
@@ -16,7 +16,7 @@ const PopularCompanies = () => {
     },
     {
       id: 2,
-      title: "Tesla",
+      title: "Walton Industries",
       location: "Tongi, Gazipur",
       openPositions: 5,
       icon: <SiTesla />,
@@ -24,7 +24,7 @@ const PopularCompanies = () => {
     },
     {
       id: 3,
-      title: "Apple",
+      title: "GrameenPhone",
       location: "Street 10 Uttara, Dhaka",
       openPositions: 20,
       icon: <FaApple />,
@@ -32,7 +32,7 @@ const PopularCompanies = () => {
     },
     {
       id: 4,
-      title: "Lamborghini",
+      title: "Nagad",
       location: "Savar, Dhaka",
       openPositions: 12,
       icon: <SiLamborghini />,
@@ -40,7 +40,7 @@ const PopularCompanies = () => {
     },
     {
       id: 5,
-      title: "Android",
+      title: "Daraz",
       location: "Dhanmondi, Dhaka",
       openPositions: 20,
       icon: <IoLogoAndroid />,
