@@ -30,6 +30,9 @@ import AppleComp from "./components/Layout/AppleComp";
 import CompanyDetailPage from "./components/Layout/CompanyDetailPage";
 import Payment from "./components/Layout/Payment";
 import Pricing from "./components/Pricing";
+import BkashPayment from "./components/Layout/BkashPayment";
+import Success from "./components/Layout/Success";
+import Failure from "./components/Layout/Failure";
 
 
 const App = () => {
@@ -78,6 +81,9 @@ const App = () => {
           <Route path="/tesla-jobs" element={<TeslaComp />} />
           <Route path="/apple-jobs" element={<AppleComp />} /> 
           <Route path="/payment" element={<Payment />} /> 
+          <Route path="/bkash-payment" element={<BkashPayment />} /> 
+          <Route path="/success" element={<Success />} /> 
+          <Route path="/failure" element={<Failure />} /> 
           <Route path="/company/:id" element={<CompanyDetailPage />} /> 
           <Route path="/pricing" element={<Pricing />} />
           <Route path="*" element={<NotFound />} />

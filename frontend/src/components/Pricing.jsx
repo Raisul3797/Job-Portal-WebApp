@@ -4,7 +4,6 @@ import axios from "axios";
 
 const Pricing = () => {
     const [isYearly, setIsYearly] = useState(false);
-    const [paymentUrl, setPaymentUrl] = useState("");
     const navigate = useNavigate();
 
     const packages = [
@@ -19,9 +18,7 @@ const Pricing = () => {
         } else {
             const amount = isYearly ? pkg.yearlyPrice : pkg.monthlyPrice;
             const packageId = pkg.id;
-            // Alert the package ID and amount
-            alert(`Package ID: ${packageId}, Amount: ৳${amount}`);
-            // You can add your payment handling logic here
+            navigate('/payment', { state: { pkg, amount } });
         }
     };
 
