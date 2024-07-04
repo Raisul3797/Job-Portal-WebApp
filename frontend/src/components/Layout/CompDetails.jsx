@@ -3,6 +3,8 @@ import { IoLocationOutline } from 'react-icons/io5';
 import { TiDocumentText } from 'react-icons/ti';
 import { FaCheckCircle } from 'react-icons/fa'; // Icon for requirements
 import { AiOutlineBulb } from 'react-icons/ai'; // Icon for responsibilities
+import { IoMdArrowRoundBack } from 'react-icons/io';
+import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
 const handlePayment = () => {
@@ -16,9 +18,14 @@ const handlePayment = () => {
 };
 
 const CompDetails = () => {
+    const navigate = useNavigate();
+
+    const handleBackClick = () => {
+        navigate('/');
+    };
 
     return (
-        <div className=" container company-details my-8">
+        <div className="container company-details my-8">
             <LogoAndName name="BRAC Bank Ltd." />
             <Location location="Gulshan, Dhaka" />
             <JobDescription description="We are looking for a talented React Developer to join our 
@@ -36,19 +43,28 @@ const CompDetails = () => {
                 'Build reusable components and libraries', 
                 'Optimize applications for maximum speed and scalability']} />
             <ApplyButton />
+            <div className="text-center mt-8">
+                <button
+                    onClick={handleBackClick}
+                    className="btn btn-secondary px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600 flex items-center justify-center"
+                >
+                    <IoMdArrowRoundBack className="mr-2" />
+                    Back
+                </button>
+            </div>
         </div>
     );
 };
 
-const LogoAndName = () => (
-    <div className="logo-and-name">
-        <img src="./src/assets/spotify.png" className="company-logo" alt="Company Logo" />
-        <h1 className="company-name font-semibold text-4xl">BRAC Bank Ltd.</h1>
+const LogoAndName = ({ name }) => (
+    <div className="logo-and-name mb-6">
+        <img src="./src/assets/spotify.png" className="company-logo mb-4" alt="Company Logo" />
+        <h1 className="company-name font-semibold text-4xl">{name}</h1>
     </div>
 );
 
 const Location = ({ location }) => (
-    <div className="location">
+    <div className="location mb-6">
         <div className="flex items-center mb-2">
             <IoLocationOutline className="text-3xl mr-3 text-blue-500" />
             <h2 className='text-2xl font-semibold'>Location</h2>
@@ -58,7 +74,7 @@ const Location = ({ location }) => (
 );
 
 const JobDescription = ({ description }) => (
-    <div className="job-description">
+    <div className="job-description mb-6">
         <div className="flex items-center mb-2">
             <TiDocumentText className="text-3xl mr-3 text-blue-500" />
             <h2 className='text-2xl font-semibold'>Job Description</h2>
@@ -68,7 +84,7 @@ const JobDescription = ({ description }) => (
 );
 
 const Requirements = ({ requirements }) => (
-    <div className="requirements">
+    <div className="requirements mb-6">
         <div className="flex items-center mb-2">
             <FaCheckCircle className="text-3xl mr-3 text-green-500" />
             <h2 className='text-2xl font-semibold'>Requirements</h2>
@@ -82,7 +98,7 @@ const Requirements = ({ requirements }) => (
 );
 
 const Responsibilities = ({ responsibilities }) => (
-    <div className="responsibilities">
+    <div className="responsibilities mb-6">
         <div className="flex items-center mb-2">
             <AiOutlineBulb className="text-3xl mr-3 text-yellow-500" />
             <h2 className='text-2xl font-semibold'>Responsibilities</h2>

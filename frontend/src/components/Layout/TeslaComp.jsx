@@ -97,7 +97,7 @@ const TeslaComp = () => {
                             <FaMapMarkerAlt className="text-red-500 mr-2" />
                             <p>{job.location}</p>
                         </div>
-                        <p className="text-gray-700 mb-4">{job.description}</p>
+                        <p className="text-gray-700 text-justify mb-4">{job.description}</p>
                         <button
                             onClick={() => handleDetailsClick(job.id)}
                             className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4 w-full flex items-center justify-center"
