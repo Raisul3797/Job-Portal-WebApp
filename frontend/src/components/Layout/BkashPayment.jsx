@@ -72,7 +72,7 @@ const BkashPayment = () => {
                 </div>
                 {isLoading && (
                     <div className="mt-4 text-center">
-                        <div className="loader">Loading...</div> {/* Add your loader here */}
+                        <div className="loader mx-auto text-2xl"></div> {/* Add your loader here */}
                     </div>
                 )}
             </div>

@@ -1520,14 +1520,68 @@ nav .hamburger {
   border: 4px solid #f3f3f3; /* Light grey */
   border-top: 4px solid #3498db; /* Blue */
   border-radius: 50%;
-  width: 24px;
-  height: 24px;
+  width: 48px;
+  height: 48px;
   animation: spin 2s linear infinite;
 }
 
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
+}
+
+.company-details {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f8f8f8;
+}
+
+.company-logo {
+  width: 100px; /* Adjust as needed */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 50%; /* Rounded logo */
+}
+
+.company-name {
+  font-size: 24px;
+  margin-top: 10px;
+}
+
+.location {
+  margin-top: 20px;
+}
+
+.job-description,
+.requirements,
+.responsibilities {
+  margin-top: 20px;
+}
+
+.requirements ul,
+.responsibilities ul {
+  padding-left: 20px;
+}
+
+.apply-button {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.apply-button button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.apply-button button:hover {
+  background-color: #0056b3;
 }
 
 
