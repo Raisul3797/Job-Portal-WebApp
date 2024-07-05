@@ -55,7 +55,7 @@ const Course = ({ courses }) => {
             <h3 className="text-2xl font-bold mb-4">{category}</h3>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {displayedCourses.map((course, index) => (
-                <div key={index} className="card border shadow-lg rounded-lg p-4">
+                <div key={index} className="card border bg-white shadow-md rounded-lg overflow-hidden transform transition-transform hover:scale-105 p-4">
                   <h3 className="text-xl text-blue-500 font-bold">{course.title}</h3>
                   <p className="text-gray-700">Instructor: {course.provider}</p>
                   <div className="flex items-center">

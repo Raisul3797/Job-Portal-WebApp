@@ -4,6 +4,76 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import ResumeModal from "./ResumeModal";
+import Swal from "sweetalert2";
+
+const JobSeekerCard = ({ element, deleteApplication, openModal }) => {
+  return (
+    <div className="job_seeker_card">
+      <div className="detail">
+        <p>
+          <span>Name:</span> {element.name}
+        </p>
+        <p>
+          <span>Email:</span> {element.email}
+        </p>
+        <p>
+          <span>Phone:</span> {element.phone}
+        </p>
+        <p>
+          <span>Address:</span> {element.address}
+        </p>
+        <p>
+          <span>CoverLetter:</span> {element.coverLetter}
+        </p>
+      </div>
+      <div className="resume">
+        <img
+          src={element.resume.url}
+          alt="resume"
+          onClick={() => openModal(element.resume.url)}
+        />
+      </div>
+      <div className="btn_area">
+        <button onClick={() => deleteApplication(element._id)}>Delete Application</button>
+      </div>
+    </div>
+  );
+};
+
+const EmployerCard = ({ element, openModal, acceptApplication, deleteApplication }) => {
+  return (
+    <div className="job_seeker_card">
+      <div className="detail">
+        <p>
+          <span>Name:</span> {element.name}
+        </p>
+        <p>
+          <span>Email:</span> {element.email}
+        </p>
+        <p>
+          <span>Phone:</span> {element.phone}
+        </p>
+        <p>
+          <span>Address:</span> {element.address}
+        </p>
+        <p>
+          <span>CoverLetter:</span> {element.coverLetter}
+        </p>
+      </div>
+      <div className="resume">
+        <img
+          src={element.resume.url}
+          alt="resume"
+          onClick={() => openModal(element.resume.url)}
+        />
+      </div>
+      <div className="flex flex-col">
+        <button className="accept-btn" onClick={() => acceptApplication(element._id)}>Accept Application</button>
+        <button className="delete-btn" onClick={() => deleteApplication(element._id)}>Delete Application</button>
+      </div>
+    </div>
+  );
+};
 
 const MyApplications = () => {
   const { user } = useContext(Context);
@@ -42,7 +112,7 @@ const MyApplications = () => {
     navigateTo("/login");
   }
 
-  const deleteApplication = async(id) => {
+  const deleteApplication = async (id) => {
     try {
       await axios
         .delete(`http://localhost:4000/api/v1/application/delete/${id}`, {
@@ -57,6 +127,33 @@ const MyApplications = () => {
     } catch (error) {
       toast.error(error.response.data.message);
     }
+  };
+
+  const deleteApplications = async (id) => {
+    Swal.fire({
+      position: "top-end",
+      icon: "success",
+      title: "Your application has been deleted.",
+      showConfirmButton: false,
+      timer: 1500
+    });
+  }
+
+  const acceptApplication = async (id) => {
+    Swal.fire({
+      title: "Do you want to save the changes?",
+      showDenyButton: true,
+      showCancelButton: true,
+      confirmButtonText: "Accept",
+      denyButtonText: `Don't accept!`
+    }).then((result) => {
+      /* Read more about isConfirmed, isDenied below */
+      if (result.isConfirmed) {
+        Swal.fire("Accepted! You will get an confirmation email soon.", "", "success");
+      } else if (result.isDenied) {
+        Swal.fire("Canceled.", "", "info");
+      }
+    });
   };
 
   const openModal = (imageUrl) => {
@@ -75,8 +172,7 @@ const MyApplications = () => {
           <h1 className="font-semibold text-4xl">My Applications</h1>
           {applications.length <= 0 ? (
             <>
-              {" "}
-              <h4>No Applications Found</h4>{" "}
+              <h4>No Applications Found</h4>
             </>
           ) : (
             applications.map((element) => {
@@ -105,6 +201,8 @@ const MyApplications = () => {
                   element={element}
                   key={element._id}
                   openModal={openModal}
+                  acceptApplication={acceptApplication}
+                  deleteApplication={deleteApplications}
                 />
               );
             })
@@ -119,74 +217,3 @@ const MyApplications = () => {
 };
 
 export default MyApplications;
-
-const JobSeekerCard = ({ element, deleteApplication, openModal }) => {
-  return (
-    <>
-      <div className="job_seeker_card">
-        <div className="detail">
-          <p>
-            <span>Name:</span> {element.name}
-          </p>
-          <p>
-            <span>Email:</span> {element.email}
-          </p>
-          <p>
-            <span>Phone:</span> {element.phone}
-          </p>
-          <p>
-            <span>Address:</span> {element.address}
-          </p>
-          <p>
-            <span>CoverLetter:</span> {element.coverLetter}
-          </p>
-        </div>
-        <div className="resume">
-          <img
-            src={element.resume.url}
-            alt="resume"
-            onClick={() => openModal(element.resume.url)}
-          />
-        </div>
-        <div className="btn_area">
-          <button onClick={() => deleteApplication(element._id)}>
-            Delete Application
-          </button>
-        </div>
-      </div>
-    </>
-  );
-};
-
-const EmployerCard = ({ element, openModal }) => {
-  return (
-    <>
-      <div className="job_seeker_card">
-        <div className="detail">
-          <p>
-            <span>Name:</span> {element.name}
-          </p>
-          <p>
-            <span>Email:</span> {element.email}
-          </p>
-          <p>
-            <span>Phone:</span> {element.phone}
-          </p>
-          <p>
-            <span>Address:</span> {element.address}
-          </p>
-          <p>
-            <span>CoverLetter:</span> {element.coverLetter}
-          </p>
-        </div>
-        <div className="resume">
-          <img
-            src={element.resume.url}
-            alt="resume"
-            onClick={() => openModal(element.resume.url)}
-          />
-        </div>
-      </div>
-    </>
-  );
-};

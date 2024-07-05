@@ -72,7 +72,7 @@ const SkillDev = () => {
       <h2 className="text-center text-3xl font-bold my-8">Skill Development Resources</h2>
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
         {resources.map((resource, index) => (
-          <div key={index} className="card border shadow-lg rounded-lg p-4">
+          <div key={index} className="card border  p-4 bg-white shadow-md rounded-lg overflow-hidden transform transition-transform hover:scale-105">
             <h3 className="text-3xl text-blue-500 font-bold">{resource.title}</h3>
             <p className="text-gray-700">{resource.description}</p>
             <a

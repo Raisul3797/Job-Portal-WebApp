@@ -40,7 +40,7 @@ const CourseDetail = ({ courses }) => {
   };
 
   return (
-    <div className="container card border shadow-lg rounded-lg p-4 w-1/2 mx-auto my-8 pl-12 space-y-3">
+    <div className="container card border shadow-lg rounded-lg p-4 w-1/2 mx-auto my-8 pl-12 space-y-3 ">
       <h1 className="text-center font-bold text-5xl my-8">Course Details</h1>
       <h2 className="text-3xl text-blue-500 font-bold">{course.title}</h2>
       <p className="text-gray-700">Instructor: {course.provider}</p>

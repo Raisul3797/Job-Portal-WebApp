@@ -824,6 +824,15 @@ p {
   align-items: center;
   justify-content: center;
 }
+.accept-btn {
+  /* background-color: rgb(15, 118, 15); */
+  color: white;
+  border: none;
+  padding: 0.5em 1em;
+  margin-bottom: 0.5em;
+  cursor: pointer;
+  border-radius: 5px;
+}
 .job_seeker_card .btn_area button {
   background: #d9534f;
   color: #fff;
@@ -1356,6 +1365,15 @@ nav .hamburger {
     z-index: 11;
   }
 }
+.accept-btn {
+  background-color: rgb(15, 118, 15);
+  color: white;
+  border: none;
+  padding: 0.5em 1em;
+  margin-bottom: 0.5em;
+  cursor: pointer;
+  border-radius: 5px;
+}
 .faq-container {
   width: 80%; /* Example width */
   margin: 0 auto; /* Center horizontally */
@@ -1582,6 +1600,39 @@ nav .hamburger {
 
 .apply-button button:hover {
   background-color: #0056b3;
+}
+
+.job_seeker_card {
+  border: 1px solid #ccc;
+  padding: 1em;
+  margin-bottom: 1em;
+  border-radius: 5px;
+}
+
+.detail p {
+  margin: 0.5em 0;
+}
+
+.resume img {
+  width: 100px;
+  cursor: pointer;
+}
+
+.btn_area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+
+.delete-btn {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 0.5em 1em;
+  cursor: pointer;
+  border-radius: 5px;
 }
 
 
