@@ -36,6 +36,7 @@ import Failure from "./components/Layout/Failure";
 import Course from "./components/Layout/Course";
 import CourseDetail from "./components/Layout/CourseDetail";
 import CompDetails from "./components/Layout/CompDetails";
+import EnterAmount from "./components/Layout/EnterAmount";
 
 const courses = {
   "Web Development": [
@@ -223,6 +224,7 @@ const App = () => {
           <Route path="/apple-jobs" element={<AppleComp />} />
           <Route path="/payment" element={<Payment />} />
           <Route path="/bkash-payment" element={<BkashPayment />} />
+          <Route path="/enter-amount" element={<EnterAmount />} />
           <Route path="/success" element={<Success />} />
           <Route path="/failure" element={<Failure />} />
           <Route path="/company/:id" element={<CompanyDetailPage />} />
