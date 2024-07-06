@@ -14,7 +14,8 @@ const HeroSection = () => {
   const [showJobSeekers, setShowJobSeekers] = useState(false);
 
   useEffect(() => {
-    fetch('./src/MERN_JOB_SEEKING_WEBAPP.users.json')
+    // Assuming these files are in the public directory for simplicity
+    fetch('/src/MERN_JOB_SEEKING_WEBAPP.users.json')
       .then(response => response.json())
       .then(data => {
         setEmployers(data);
@@ -22,12 +23,12 @@ const HeroSection = () => {
       })
       .catch(error => console.error('Error fetching employer data:', error));
 
-    fetch('./src/MERN_JOB_SEEKING_WEBAPP.jobs.json')
+    fetch('/src/MERN_JOB_SEEKING_WEBAPP.jobs.json')
       .then(response => response.json())
       .then(data => setJobs(data))
       .catch(error => console.error('Error fetching jobs data:', error));
 
-    // Generate sample companies data
+    // Sample companies data
     setCompanies([
       { id: 1, name: "Tech Solutions", industry: "IT", location: "New York" },
       { id: 2, name: "Health Plus", industry: "Healthcare", location: "Los Angeles" },
@@ -49,14 +50,27 @@ const HeroSection = () => {
       { id: 18, name: "Sportify", industry: "Sports", location: "Miami" },
       { id: 19, name: "SpaceTech", industry: "Aerospace", location: "Houston" },
       { id: 20, name: "AI Innovators", industry: "Artificial Intelligence", location: "San Jose" }
+      // Add more companies as needed
     ]);
   }, []);
 
   const handleToggle = (type) => {
-    setShowEmployers(type === "employers");
-    setShowJobs(type === "jobs");
-    setShowCompanies(type === "companies");
-    setShowJobSeekers(type === "jobSeekers");
+    switch (type) {
+      case "employers":
+        setShowEmployers(!showEmployers);
+        break;
+      case "jobs":
+        setShowJobs(!showJobs);
+        break;
+      case "companies":
+        setShowCompanies(!showCompanies);
+        break;
+      case "jobSeekers":
+        setShowJobSeekers(!showJobSeekers);
+        break;
+      default:
+        break;
+    }
   };
 
   const details = [
@@ -76,17 +90,17 @@ const HeroSection = () => {
     },
     {
       id: 3,
-      title: "10,001", //jobSeekers.length.toString()
+      title: "10,001", // Placeholder until job seekers data is fetched
       subTitle: "Job Seekers",
       icon: <FaUsers />,
-      // onClick: () => handleToggle("jobSeekers"),
+      onClick: () => handleToggle("jobSeekers"),
     },
     {
       id: 4,
-      title: '5,920', //employers.length.toString()
+      title: '5,920', // Placeholder until employers data is fetched
       subTitle: "Employers",
       icon: <FaUserPlus />,
-      // onClick: () => handleToggle("employers"),
+      onClick: () => handleToggle("employers"),
     },
   ];
 
@@ -121,74 +135,75 @@ const HeroSection = () => {
             </div>
           ))}
         </div>
+
         {showJobs && (
-  <div className="jobs-list pl-10 common-subtitle">
-    <h2 className="mb-5 p-6 font-bold text-2xl text-center">List of Jobs</h2>
-    <ul className="p-8 space-y-2 grid grid-cols-5 mx-auto w-3/4 shadow-inner">
-      {jobs.map(job => (
-        <li className="space-y-2 company-card bg-slate-200" key={job._id.$oid}>
-          <div><span className="font-bold pb-6">Title:</span> {job.title}</div>
-          <div><span className="font-bold pb-6">Country:</span> {job.country}</div>
-          <div><span className="font-bold pb-6">Location:</span> {job.location}</div>
-          <Link className="" to={`/application/${job._id}`}>
-            <button className="mt-4 px-2 py-2 bg-blue-500 text-white rounded font-bold">Apply Now</button>
-          </Link>
-        </li>
-      ))}
-    </ul>
-  </div>
-)}
+          <div className="jobs-list pl-10 common-subtitle">
+            <h2 className="mb-5 p-6 font-bold text-2xl text-center">List of Jobs</h2>
+            <ul className="p-8 space-y-2 grid grid-cols-5 mx-auto w-3/4 shadow-inner">
+              {jobs.map(job => (
+                <li className="space-y-2 company-card bg-slate-200" key={job._id.$oid}>
+                  <div><span className="font-bold pb-6">Title:</span> {job.title}</div>
+                  <div><span className="font-bold pb-6">Country:</span> {job.country}</div>
+                  <div><span className="font-bold pb-6">Location:</span> {job.location}</div>
+                  <Link to={`/application/${job._id}`}>
+                    <button className="mt-4 px-2 py-2 bg-blue-500 text-white rounded font-bold">Apply Now</button>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
 
-{showCompanies && (
-  <div className="companies-list pl-10 common-subtitle">
-    <h2 className="mb-5 p-6 font-bold text-2xl text-center">List of Companies</h2>
-    <ul className="p-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8">
-      {companies.map(company => (
-        <li className="company-card bg-slate-200" key={company.id}>
-          <h3>{company.name}</h3>
-          <p><span className="font-bold">Industry:</span> {company.industry}</p>
-          <p><span className="font-bold">Location:</span> {company.location}</p>
-          <Link to="{`/company/${company.id}`}">
-            <div className="text-center">
-              <button className="mt-2">Details</button>
-            </div>
-          </Link>
-        </li>
-      ))}
-    </ul>
-  </div>
-)}
+        {showCompanies && (
+          <div className="companies-list pl-10 common-subtitle w-3/4 mx-auto">
+            <h2 className="mb-5 p-6 font-bold text-2xl text-center">List of Companies</h2>
+            <ul className="p-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+              {companies.map(company => (
+                <li className="company-card bg-slate-200" key={company.id}>
+                  <h3>{company.name}</h3>
+                  <p><span className="font-bold">Industry:</span> {company.industry}</p>
+                  <p><span className="font-bold">Location:</span> {company.location}</p>
+                  <Link to="/comp-details">
+                    <div className="text-center">
+                      <button className="mt-2">Details</button>
+                    </div>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
 
-{showJobSeekers && (
-  <div className="job-seekers-list pl-10 common-subtitle">
-    <h2 className="mb-5 p-6 font-bold text-2xl text-center">List of Job Seekers</h2>
-    <ul className="p-8 space-y-2 grid grid-cols-5 mx-auto w-3/4 shadow-inner">
-      {jobSeekers.map(jobSeeker => (
-        <li className="company-card bg-slate-300" key={jobSeeker._id.$oid}>
-          <div><span className="font-bold pb-6">Name:</span> {jobSeeker.name}</div>
-          <div><span className="font-bold pb-6">Email:</span> {jobSeeker.email}</div>
-          <div><span className="font-bold pb-6">Phone:</span> {jobSeeker.phone.$numberLong || jobSeeker.phone}</div>
-        </li>
-      ))}
-    </ul>
-  </div>
-)}
+        {showJobSeekers && (
+          <div className="job-seekers-list pl-10 common-subtitle">
+            <h2 className="mb-5 p-6 font-bold text-2xl text-center">List of Job Seekers</h2>
+            <ul className="p-8 space-y-2 grid grid-cols-5 mx-auto w-3/4 shadow-inner">
+              {jobSeekers.map(jobSeeker => (
+                <li className="company-card bg-slate-300" key={jobSeeker._id.$oid}>
+                  <div><span className="font-bold pb-6">Name:</span> {jobSeeker.name}</div>
+                  <div><span className="font-bold pb-6">Email:</span> {jobSeeker.email}</div>
+                  <div><span className="font-bold pb-6">Phone:</span> {jobSeeker.phone.$numberLong || jobSeeker.phone}</div>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
 
-{showEmployers && (
-  <div className="employers-list pl-10 common-subtitle">
-    <h2 className="mb-5 p-6 font-bold text-2xl text-center">List of Employers</h2>
-    <ul className="p-8 space-y-2 grid grid-cols-5 mx-auto w-3/4 shadow-inner">
-      {employers.map(employer => (
-        <li className="company-card bg-slate-300" key={employer._id.$oid}>
-          <div><span className="font-bold pb-6">Name:</span> {employer.name}</div>
-          <div><span className="font-bold pb-6">Email:</span> {employer.email}</div>
-          <div><span className="font-bold pb-6">Role:</span> {employer.role}</div>
-          <div><span className="font-bold pb-6">Phone:</span> {employer.phone.$numberLong || employer.phone}</div>
-        </li>
-      ))}
-    </ul>
-  </div>
-)}
+        {showEmployers && (
+          <div className="employers-list pl-10 common-subtitle">
+            <h2 className="mb-5 p-6 font-bold text-2xl text-center">List of Employers</h2>
+            <ul className="p-8 space-y-2 grid grid-cols-5 mx-auto w-3/4 shadow-inner">
+              {employers.map(employer => (
+                <li className="company-card bg-slate-300" key={employer._id.$oid}>
+                  <div><span className="font-bold pb-6">Name:</span> {employer.name}</div>
+                  <div><span className="font-bold pb-6">Email:</span> {employer.email}</div>
+                  <div><span className="font-bold pb-6">Role:</span> {employer.role}</div>
+                  <div><span className="font-bold pb-6">Phone:</span> {employer.phone.$numberLong || employer.phone}</div>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
 
       </div>
     </>

@@ -42,7 +42,7 @@ const CompanyDetailPage = ({ match }) => {
   return (
     <div>
       <h2>{company.name} Details</h2>
-      <p><span className="font-bold">Industry:</span> {company.industry}</p>
+      <p><span className="font-bold text-cyan-300">Industry:</span> {company.industry}</p>
       <p><span className="font-bold">Location:</span> {company.location}</p>
       {/* Add other company details here */}
     </div>

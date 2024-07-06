@@ -1,5 +1,4 @@
-import React from "react";
-import { useContext } from "react";
+import React, { useContext } from "react";
 import { Context } from "../../main";
 import { Navigate } from "react-router-dom";
 import HeroSection from "./HeroSection";
@@ -10,10 +9,12 @@ import Premium from "./Premium";
 import Pricing from "../Pricing";
 
 const Home = () => {
-  const { isAuthorized } = useContext(Context);
+  const { isAuthorized, user } = useContext(Context);
+
   if (!isAuthorized) {
     return <Navigate to={"/login"} />;
   }
+
   return (
     <>
       <section className="homePage page">
@@ -21,7 +22,7 @@ const Home = () => {
         <HowItWorks />
         <PopularCategories />
         <PopularCompanies />
-        <Pricing/>
+        {user?.role !== 'Employer' && <Pricing />}
       </section>
     </>
   );
